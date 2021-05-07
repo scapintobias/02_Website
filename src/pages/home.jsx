@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProTitle } from '../components/components';
+
 import { ProjectList } from '../components/projectlist';
 
 export default function Home() {
@@ -13,59 +13,10 @@ export default function Home() {
 				</h1>
 				<div className='space-y-2 h-80' />
 				<div className='text-white text-6xl font-bold'>Projects</div>
+
 				<div className='space-y-2 h-32' />
 				<div className='grid gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 text-white text-4xl tracking-tighter font-bold mb-8'>
-					<ProTitle
-						to='/'
-						title='Yape'
-						subtitle='Corporate Image and Manual'
-						//class="hidden"
-						twitter='https://twitter.com/SiviRiva'
-						name='Silvia Riva'
-						//clas="hidden"
-						web='https://www.e-novia.it'
-						company='e-Novia'
-					/>
-					<ProTitle
-						to='/'
-						title='Yape'
-						subtitle='Remote driving interface'
-						with='many others'
-						web='https://www.e-novia.it'
-						company='e-Novia'
-					/>
-					<ProTitle
-						to='/'
-						title='Metro de Lima'
-						subtitle='Branding and wayfinding'
-						//class="hidden"
-						twitter='https://twitter.com/samueliuri'
-						name='Samuel Iuri'
-						//clas="hidden"
-						web='https://www.discipline.design'
-						company='DD'
-					/>
-					<ProTitle
-						to='/'
-						title='Our Headline'
-						subtitle='Type Design'
-						class='hidden'
-						twitter='https://twitter.com/samueliuri'
-						name='Samuel Iuri'
-						//clas="hidden"
-						web='https://www.discipline.design'
-						company='DD'
-					/>
-					<ProTitle
-						to='/'
-						title='Craf Aldo Moro'
-						subtitle='Corporate Image and Manual'
-						//class="hidden"
-						link='http://www.designculture.it/interview/maurizio-milani.html'
-						name='Maurizio Milani'
-						where='ISAC'
-					/>
-					<ProTitle div='hidden'>
+					<div>
 						Founder of{' '}
 						<a
 							href='https://www.discipline.design'
@@ -75,10 +26,7 @@ export default function Home() {
 							DisciplineDesign
 						</a>{' '}
 						design agency in 2008
-					</ProTitle>
-				</div>
-				<div className='space-y-2 h-32' />
-				<div className='grid gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 text-white text-4xl tracking-tighter font-bold mb-8'>
+					</div>
 					<ProjectList />
 				</div>
 			</div>

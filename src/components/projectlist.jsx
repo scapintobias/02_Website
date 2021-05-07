@@ -34,19 +34,25 @@ const projects = [
 		'e-Novia',
 		null,
 	),
+	createProject(
+		'Metro de Lima',
+		'Branding and wayfinding',
+		'Samuel Iuri',
+		'https://twitter.com/samueliuri',
+		'DD',
+		'https://www.discipline.design',
+	),
+
+	createProject('Our Headline', 'Typeface', null, null, null, null),
+	createProject(
+		'CRAF Aldo Moro',
+		'Corporate Image and Manual',
+		'Maurizio Milani',
+		'http://www.designculture.it/interview/maurizio-milani.html',
+		'ISAC',
+		'https://www.liceoartisticogalvani.edu.it/',
+	),
 ];
-
-console.log(projects.map((project) => project.twitter));
-
-function isLink() {
-	const hrel = projects.map((project) => project.twitter === null);
-
-	if (hrel === true)
-		return projects.map((project) => <span>{project.twitter}</span>);
-	else if (hrel === false) return <span>NULL</span>;
-}
-
-console.log(isLink);
 
 export function ProjectList() {
 	return projects.map((project) => (
@@ -58,28 +64,56 @@ export function ProjectList() {
 				<p>{project.title}</p>
 				<p>{project.subtitle}</p>
 			</Link>
+			{isLink(project)}
+		</div>
+	));
+}
+
+function isLink(project) {
+	if (project.twitter && project.website !== null)
+		return (
 			<p>
-				{isLink()}
-				{/* with{' '}
-				<a
-					href={project.twitter}
-					className='hover:text-blue-600'
-					target='_blank'
-					rel='noopener noreferrer'>
-					{project.mit}
-				</a>{' '}
+				<span>
+					with{' '}
+					<a
+						className='hover:text-blue-600'
+						key={slugify(project.title)}
+						rel='noreferrer'
+						target='_blank'
+						href={project.twitter}>
+						{project.mit}
+					</a>
+				</span>{' '}
 				at{' '}
 				<a
-					href={project.website}
 					className='hover:text-green-600'
+					key={slugify(project.title)}
 					target='_blank'
-					rel='noopener noreferrer'>
+					rel='noopener noreferrer'
+					href={project.website}>
 					{project.at}
 				</a>
 			</p>
+		);
+	else if (project.twitter === null && project.at !== null)
+		return (
 			<p>
-				 */}
+				<span>with {project.mit}</span> at{' '}
+				<a
+					className='hover:text-green-600'
+					key={slugify(project.title)}
+					target='_blank'
+					rel='noopener noreferrer'
+					href={project.website}>
+					{project.at}
+				</a>
 			</p>
-		</div>
-	));
+		);
+	else if (
+		project.mit &&
+		project.twitter &&
+		project.at &&
+		project.website === null
+	)
+		return null;
 }
