@@ -1,0 +1,17 @@
+{
+	"html.format.wrapAttributes": "force",
+	"html.format.wrapLineLength": 80,
+	"editor.wordWrap": "wordWrapColumn",
+	"files.autoSave": "afterDelay",
+	"editor.fontFamily": "JetBrains Mono",
+	"editor.tabSize": 2,
+	"editor.renderWhitespace": "all",
+	"editor.multiCursorModifier": "ctrlCmd",
+	"editor.accessibilitySupport": "on",
+	"editor.autoClosingBrackets": "always",
+	"editor.columnSelection": false,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.insertSpaces": false,
+	"editor.maxTokenizationLineLength": 200000,
+	"editor.wordWrapColumn": 70
+}

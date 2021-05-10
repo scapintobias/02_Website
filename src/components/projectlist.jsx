@@ -1,3 +1,7 @@
+import React from 'react';
+
+import Bounce from 'react-reveal/Bounce';
+
 import { Link } from 'react-router-dom';
 import slug from 'slugify';
 
@@ -8,7 +12,8 @@ export function slugify(...strings) {
 	});
 }
 
-const createProject = (title, subtitle, mit, twitter, at, website) => ({
+const createProject = (key, title, subtitle, mit, twitter, at, website) => ({
+	key,
 	title,
 	subtitle,
 	mit,
@@ -17,56 +22,97 @@ const createProject = (title, subtitle, mit, twitter, at, website) => ({
 	website,
 });
 
-const projects = [
+export const projects = [
 	createProject(
+		'b',
 		'Yape',
 		'Corporate Image and Manual',
 		'Silvia Riva',
 		'https://twitter.com/SiviRiva',
 		'e-Novia',
-		'https://www.e-novia.it/',
+		'https://www.e-novia.it/'
 	),
 	createProject(
+		'c',
 		'Yape',
 		'Remote driving interface',
 		'many others',
 		null,
 		'e-Novia',
-		null,
+		null
 	),
 	createProject(
+		'd',
 		'Metro de Lima',
 		'Branding and wayfinding',
 		'Samuel Iuri',
 		'https://twitter.com/samueliuri',
 		'DD',
-		'https://www.discipline.design',
+		'https://www.discipline.design'
 	),
 
-	createProject('Our Headline', 'Typeface', null, null, null, null),
+	createProject('e', 'Our Headline', 'Typeface', null, null, null, null),
 	createProject(
+		'f',
 		'CRAF Aldo Moro',
 		'Corporate Image and Manual',
 		'Maurizio Milani',
 		'http://www.designculture.it/interview/maurizio-milani.html',
 		'ISAC',
-		'https://www.liceoartisticogalvani.edu.it/',
+		'https://www.liceoartisticogalvani.edu.it/'
 	),
 ];
 
 export function ProjectList() {
 	return projects.map((project) => (
-		<div>
-			<Link
-				className='hover:text-red-500'
-				key={slugify(project.title)}
-				to={`/projects/${slugify(project.title)}`}>
-				<p>{project.title}</p>
-				<p>{project.subtitle}</p>
-			</Link>
-			{isLink(project)}
-		</div>
+		<Bounce bottom>
+			<div key={project.key}>
+				<Link
+					className='hover:text-red-500'
+					key={project.key}
+					to={`/projects/${slugify(project.title)}`}
+				>
+					<p>{project.title}</p>
+					<p>{project.subtitle}</p>
+				</Link>
+				{isLink(project)}
+			</div>
+		</Bounce>
 	));
+}
+
+export function Discipline() {
+	return (
+		<Bounce bottom>
+			<div>
+				Founder of{' '}
+				<a
+					href='https://www.discipline.design'
+					rel='noreferrer'
+					target='_blank'
+					className='hover:text-red-500'
+				>
+					DisciplineDesign
+				</a>
+				<br />
+				design agency in 2008
+			</div>
+		</Bounce>
+	);
+}
+
+export default function ListAnime() {
+	return (
+		<div
+			className='grid gap-y-12 sm:grid-cols-1 md:grid-cols-2
+			lg:grid-cols-3 2xl:grid-cols-4 
+		text-white text-4xl tracking-tighter font-bold'
+		>
+			<Discipline />
+
+			<ProjectList />
+		</div>
+	);
 }
 
 function isLink(project) {
@@ -80,7 +126,8 @@ function isLink(project) {
 						key={slugify(project.title)}
 						rel='noreferrer'
 						target='_blank'
-						href={project.twitter}>
+						href={project.twitter}
+					>
 						{project.mit}
 					</a>
 				</span>{' '}
@@ -90,7 +137,8 @@ function isLink(project) {
 					key={slugify(project.title)}
 					target='_blank'
 					rel='noopener noreferrer'
-					href={project.website}>
+					href={project.website}
+				>
 					{project.at}
 				</a>
 			</p>
@@ -104,7 +152,8 @@ function isLink(project) {
 					key={slugify(project.title)}
 					target='_blank'
 					rel='noopener noreferrer'
-					href={project.website}>
+					href={project.website}
+				>
 					{project.at}
 				</a>
 			</p>
