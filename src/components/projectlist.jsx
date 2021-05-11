@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Bounce from 'react-reveal/Bounce';
-
 import { Link } from 'react-router-dom';
 import slug from 'slugify';
 
@@ -65,49 +63,41 @@ export const projects = [
 
 export function ProjectList() {
 	return projects.map((project) => (
-		<Bounce bottom>
-			<div key={project.key}>
-				<Link
-					className='hover:text-red-500'
-					key={project.key}
-					to={`/projects/${slugify(project.title)}`}
-				>
-					<p>{project.title}</p>
-					<p>{project.subtitle}</p>
-				</Link>
-				{isLink(project)}
-			</div>
-		</Bounce>
+		<div key={project.key}>
+			<Link
+				className='hover:text-red-500'
+				key={project.key}
+				to={`/projects/${slugify(project.title)}`}
+			>
+				<p>{project.title}</p>
+				<p>{project.subtitle}</p>
+			</Link>
+			{isLink(project)}
+		</div>
 	));
 }
 
 export function Discipline() {
 	return (
-		<Bounce bottom>
-			<div>
-				Founder of{' '}
-				<a
-					href='https://www.discipline.design'
-					rel='noreferrer'
-					target='_blank'
-					className='hover:text-red-500'
-				>
-					DisciplineDesign
-				</a>
-				<br />
-				design agency in 2008
-			</div>
-		</Bounce>
+		<div>
+			Founder of{' '}
+			<a
+				href='https://www.discipline.design'
+				rel='noreferrer'
+				target='_blank'
+				className='hover:text-red-500'
+			>
+				DisciplineDesign
+			</a>
+			<br />
+			design agency in 2008
+		</div>
 	);
 }
 
 export default function ListAnime() {
 	return (
-		<div
-			className='grid gap-y-12 sm:grid-cols-1 md:grid-cols-2
-			lg:grid-cols-3 2xl:grid-cols-4 
-		text-white text-4xl tracking-tighter font-bold'
-		>
+		<div className='grid text-4xl font-bold tracking-tighter text-white gap-y-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>
 			<Discipline />
 
 			<ProjectList />

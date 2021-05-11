@@ -4,9 +4,7 @@ module.exports = {
 	darkMode: false, // or 'media' or 'class'
 	variants: {
 		// Add variants as needed
-		scrollSnapType: ['responsive'],
 	},
-	plugins: [require('tailwindcss-scroll-snap')],
 	theme: {
 		screens: {
 			'sm': '320px',
@@ -18,7 +16,7 @@ module.exports = {
 			'lg': '1024px',
 			// => @media (min-width: 1024px) { ... }
 
-			'xl': '1440px',
+			'xl': '1600px',
 			// => @media (min-width: 1280px) { ... }
 
 			'2xl': '2560px',
